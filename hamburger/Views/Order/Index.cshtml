@@ -1,0 +1,67 @@
+﻿@model hamburger.Models.ViewsModel.OrderMultiModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+<h2>Index</h2>
+
+<div>
+    <a href="~/Order/Create" class="button"> Order Ekle</a>
+    <br />
+    <br />
+    <table>
+
+        <tr>
+
+            <th>No</th>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+            <th>IsActıve</th>
+            <th>Setting</th>
+
+
+        </tr>
+
+        @if (Model.Orders.Count == 0)
+        {
+            <tr>
+                <td colspan="4">
+                    lütfen Order ekleyiniz..
+                </td>
+
+            </tr>
+        }
+        else
+        {
+            foreach (var ord in Model.Orders)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@ord.product.Name</td>
+                    <td>@ord.customer.Name &nbsp;@ord.customer.Surname</td>
+                    <td>@ord.Quantity</td>
+                    <td>@ord.product.UnitPrice</td>
+                    <td>@ord.TotalPrice</td>
+                    <td>@ord.IsActive</td>
+
+                    <td>
+                        <a href="~/Order/Edit/@ord.Id">Guncelle</a> |
+                        <a href="~/Order/Delete/@ord.Id">Sil</a>
+
+                    </td>
+
+                </tr>
+
+            }
+        }
+
+    </table>
+
+
+</div>

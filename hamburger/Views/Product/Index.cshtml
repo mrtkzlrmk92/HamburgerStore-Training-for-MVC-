@@ -1,0 +1,63 @@
+﻿@model hamburger.Models.ViewsModel.ProductMultiModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+}
+
+<h2>Index</h2>
+
+<div>
+    <a href="~/Product/Create" class="button"> Product Ekle</a>
+    <br />
+    <br />
+    <table>
+
+        <tr>
+
+            <th>No</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+            <th>IsActıve</th>
+            <th>Setting</th>
+
+
+        </tr>
+
+        @if (Model.products.Count == 0)
+        {
+            <tr>
+                <td colspan="4">
+                    lütfen Product ekleyiniz..
+                </td>
+
+            </tr>
+        }
+        else
+        {
+            foreach (var pro in Model.products)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@pro.Name</td>
+                    <td>@pro.category.Name</td>
+                    <td>@pro.UnitPrice</td>
+                    <td>@pro.IsActive</td>
+
+                    <td>
+                        <a href="~/Product/Edit/@pro.Id">Guncelle</a> |
+                        <a href="~/Product/Delete/@pro.Id">Sil</a>
+
+                    </td>
+
+                </tr>
+
+            }
+        }
+
+    </table>
+
+
+</div>

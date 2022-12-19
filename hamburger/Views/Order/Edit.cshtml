@@ -1,0 +1,56 @@
+﻿@model hamburger.Models.ViewsModel.OrderMultiModel 
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <form method="post">
+
+
+        <br />
+        <label>Customer</label>
+        <select name="CustomerId" id="CustomerId">
+            <optgroup>
+                <option value="@Model.order.CustomerId"> @Model.order.customer.Name &nbsp; 
+                @Model.order.customer.Surname &nbsp; @Model.order.customer.Balance &nbsp;</option>
+            </optgroup>
+            @foreach (var cus in Model.Customers)
+            {
+                <option value="@cus.Id">@cus.Name &nbsp;@cus.Surname &nbsp;@cus.Balance </option>
+            }
+
+        </select>
+        <br />
+        <br />
+        <label>Product</label>
+        <select name="ProductId" id="ProductId">
+            <optgroup>
+                <option value="@Model.order.ProductId">
+                    @Model.order.product.Name &nbsp;
+                    @Model.order.product.UnitPrice
+                </option>
+            </optgroup>
+            @foreach (var pro in Model.Products)
+            {
+                <option value="@pro.Id">@pro.Name &nbsp;@pro.UnitPrice </option>
+            }
+
+        </select>
+        <br />
+        <label>Quantity</label>
+        <input type="number" min="1" name="Quantity" id="Quantity" value="@Model.order.Quantity" />
+        <br />
+        <label> Is  active</label>
+
+        <input type="checkbox" value="true" checked="@Model.order.IsActive"
+               data-val="true" name="IsActive"
+               id="IsActive" />
+
+        <br />
+        <br />
+        <button>Kaydet</button>
+
+    </form>
+</div>
+

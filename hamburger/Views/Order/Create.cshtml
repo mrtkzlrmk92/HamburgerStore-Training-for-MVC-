@@ -1,0 +1,46 @@
+﻿@model hamburger.Models.ViewsModel.OrderMultiModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<div>
+    <form method="post">
+
+
+        <br />
+        <label>Customer</label>
+        <select name="CustomerId" id="CustomerId">
+            @foreach (var cus in Model.Customers)
+            {
+                <option value="@cus.Id">@cus.Name &nbsp;@cus.Surname &nbsp;@cus.Balance </option>
+            }
+
+        </select>
+        <br />
+        <br />
+        <label>Product</label>
+        <select name="ProductId" id="ProductId">
+            @foreach (var pro in Model.Products)
+            {
+                <option value="@pro.Id">@pro.Name &nbsp;@pro.UnitPrice </option>
+            }
+
+        </select>
+        <br />
+        <label>Quantity</label>
+       <input type="number" min="1" name="Quantity" id="Quantity" />
+        <br />
+        <label> Is  active</label>
+
+        <input type="checkbox" value="true" checked="true"
+               data-val="true" name="IsActive"
+               id="IsActive" />
+
+        <br />
+        <br />
+        <button>Kaydet</button>
+
+    </form>
+</div>

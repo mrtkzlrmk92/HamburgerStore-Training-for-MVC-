@@ -1,0 +1,31 @@
+﻿@model hamburger.Models.Customer
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div>
+    <form method="post">
+        <label>Ad</label>
+        <input type="text" name="Name" id="Name" value="@Model.Name" />
+        <br />
+        <label>Soyad</label>
+        <input type="text" name="Surname" id="Surname" value="@Model.Surname" />
+        <br />
+        <label>Balance</label>
+        <input type="text" name="Balance" id="Balance" value="@Model.Balance" />
+        <br />
+        <label> Is  active</label>
+
+        <input type="checkbox" value="true" checked="@Model.IsActive"
+               data-val="true" name="IsActive"
+               id="IsActive" />
+        <input type="hidden" value="@Model.Id" name="Id" id="Id" />
+        <br />
+        <br />
+        <button>Kaydet</button>
+
+    </form>
+</div>

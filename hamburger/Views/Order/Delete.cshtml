@@ -1,0 +1,55 @@
+﻿@model hamburger.Models.ViewsModel.OrderMultiModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<div>
+    <form method="post">
+
+
+        <br />
+        <label>Customer</label>
+        <select name="CustomerId" id="CustomerId" disabled="true">
+
+            <option value="@Model.order.CustomerId">
+                @Model.order.customer.Name &nbsp;
+                @Model.order.customer.Surname &nbsp; @Model.order.customer.Balance &nbsp;
+            </option>
+
+
+        </select>
+        <br />
+        <br />
+        <label>Product</label>
+        <select name="ProductId" id="ProductId" disabled="true">
+
+            <option value="@Model.order.ProductId">
+                @Model.order.product.Name &nbsp;
+                @Model.order.product.UnitPrice
+            </option>
+
+
+
+        </select>
+        <br />
+        <label>Quantity</label>
+        <input type="number" min="1" name="Quantity" id="Quantity" disabled="true" value="@Model.order.Quantity" />
+        <br />
+        <label> Is  active</label>
+
+        <input type="checkbox" value="true" checked="@Model.order.IsActive"
+               data-val="true" name="IsActive"
+               id="IsActive" disabled="true" />
+
+        <br />
+        <br />
+        <p> @ViewBag.mesaj</p>
+        <br />
+        <br />
+        <button>Evet</button>
+
+    </form>
+</div>
+

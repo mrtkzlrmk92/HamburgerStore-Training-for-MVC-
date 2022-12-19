@@ -1,0 +1,26 @@
+﻿@model hamburger.Models.Category
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div>
+    <form method="post">
+        <label>Category Ad</label>
+        <input type="text" name="Name" id="Name" value="@Model.Name" />
+        <br />
+        <label> ıs  active</label>
+
+        <input type="checkbox" value="true" checked="@Model.IsActive"
+               data-val="true" name="IsActive"
+               id="IsActive" />
+
+        <br />
+       <br />
+        <input type="hidden" value="@Model.Id" name="Id" id="Id" />
+        <button>Kaydet</button>
+
+    </form>
+</div>
